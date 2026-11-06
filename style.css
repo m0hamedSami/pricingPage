@@ -1,0 +1,179 @@
+body {
+    color: black;
+    text-transform: capitalize;
+    background-color: #ececec;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+a, ul{
+    text-decoration: none;
+    list-style: none;
+}
+:root {
+    --main-color: #2196f3;
+    --main-padding: 60px;
+    --main-transition: 0.7s;
+}
+.head-section {
+    padding: var(--main-padding) 0;
+}
+.head-title {
+    z-index: 1;
+    font-size: clamp(22px, 4vw, 30px);
+    font-weight: bold;
+    text-transform: uppercase;
+    width: fit-content;
+    margin: auto;
+    padding: 12px;
+    border: 2px solid black;
+    position: relative;
+    letter-spacing: -.8px;
+}
+.head-title:hover {
+    color: white;
+    border-color: transparent;
+    transition-delay: var(--main-transition);
+}
+.head-title::before,
+.head-title::after {
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background-color: var(--main-color);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+}
+.head-title::before {
+    left: -30px;
+}
+.head-title::after {
+    right: -30px;
+}
+@keyframes left {
+    50% {
+        left: 0;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+    }
+    100%{
+        left: 0;
+        border-radius: 0;
+        width: 51%;
+        height: 100%;
+    }
+}
+@keyframes right {
+    50% {
+        right: 0;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+    }
+    100%{
+        right: 0;
+        border-radius: 0;
+        width: 51%;
+        height: 100%;
+    }
+}
+.head-title:hover::before {
+    animation: left forwards linear var(--main-transition);
+}
+.head-title:hover::after {
+    animation: right forwards linear var(--main-transition);
+}
+.container {
+    width: min(100% - 30px, 1200px);
+    margin-inline: auto;
+}
+.pricing-boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(12px, 2vw, 24px);
+    padding-bottom: 20px;
+}
+.pricing-boxes .box {
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px 3px 15px;
+    background-color: white;
+}
+.pricing-boxes .box.spicial {
+    position: relative;
+}
+@media (min-width: 900px) {
+    .pricing-boxes .box.spicial {
+        transform: translateY(-15px);
+    }
+}
+.pricing-boxes .box .most-popular {
+    font-size: clamp(12px, 2vw, 14px);
+    background-color: var(--main-color);
+    color: white;
+    width: fit-content;
+    padding: 9px 10px 20px;
+    position: absolute;
+    right: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 14px), 0 100%);
+}
+.pricing-boxes .box .title {
+    font-size: clamp(15px, 3.3vw, 36px);
+    font-weight: bold;
+    padding-top: 15px;
+}
+.pricing-boxes .box img {
+    max-width: 88px;
+    margin: 15px 0 10px;
+}
+.pricing-boxes .box .price {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 55px;
+    margin: 15px 0 1px;
+    font-weight: bold;
+    color: var(--main-color);
+}
+.pricing-boxes .box .dollar {
+    font-size: .65em;
+    /* margin-top: .15em; */
+}
+.pricing-boxes .box .month {
+    font-size: clamp(14px, 3vw, 16px);
+    margin-top: 8px;
+    color: #666;
+}
+.pricing-boxes .box .features {
+    text-align: left;
+    padding: 0;
+}
+.pricing-boxes .box .features li {
+    color: #333;
+    padding: 22px 0 22px 20px;
+}
+.pricing-boxes .box .features li:not(:last-child) {
+    border-bottom: 2px solid #ccc;
+}
+.pricing-boxes .box .btn {
+    color: var(--main-color);
+    width: fit-content;
+    border-radius: 6px;
+    border: solid var(--main-color) 2px;
+    margin: 15px auto;
+    padding: 10px;
+    font-weight: bold;
+    display: block; 
+    transition: 0.3s;
+}
+.pricing-boxes .box .btn:hover {
+    color: white;
+    background-color: var(--main-color);
+}
